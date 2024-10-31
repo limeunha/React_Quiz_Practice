@@ -2,11 +2,11 @@ import App from './App.css'
 import React from 'react'
 
 function Quiz01(props) {
-   const { rain, wind, temp } = props
+   const { rain, wind, temp, children } = props
 
    return (
       <div>
-         <p>오늘은 </p>
+         <p>오늘은{children}</p>
          <p>오늘의 강수확률은 {rain}</p>
          <p>오늘의 풍속은{wind}</p>
          <table>
