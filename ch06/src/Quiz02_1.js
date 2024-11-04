@@ -7,13 +7,16 @@ function Quiz02_1() {
 
    const handleChange = useCallback((event) => {
       setText(event.target.value)
-   })
+   }, [])
 
-   const handleSubmit = useCallback((event) => {
-      event.preventDefault()
-      setItems([...items, text])
-      setText('')
-   })
+   const handleSubmit = useCallback(
+      (event) => {
+         event.preventDefault() //서버에 전송하는 걸 막아준다
+         setItems([...items, text])
+         setText('')
+      },
+      [items, text] //items와 state를 함수내부에서 read해서 사용하므로 items와 text state가 바뀔때 함수가 재생성 되도록 한다
+   )
 
    return (
       <div>
