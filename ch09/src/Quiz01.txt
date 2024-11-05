@@ -1,5 +1,8 @@
 import './App.css'
-import { Routes } from 'react-router-dom'
+import { Routes ,Route} from 'react-router-dom'
+import NewsPage from './NewsPage'
+import NewsPage from './NewsList'
+import NewsPage from './category'
 
 function App() {
    return (
@@ -16,7 +19,13 @@ function App() {
                <a href="/newsList">NewsList</a>
             </li>
          </ul>
-         <Routes>{/* 이 부분 작성 */}</Routes>
+         <Routes>
+         {/* 이 부분 작성 */}
+         <Route path="/" element={<NewsPage/>}>
+         <Route path="/" element={<category/>}>
+         <Route path="/" element={<NewsList/>}>
+         <Route path="/*" element={'Not Found'} />
+         </Routes>
       </div>
    )
 }

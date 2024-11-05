@@ -23,6 +23,7 @@ function App() {
             <Route path="/" element={<NewsPage />} />
             <Route path="/category" element={<Category />} />
             {/* 여기에 코드 작성 */}
+          <Route path="/newsList/*" element={<NewsList2/>} />
             <Route path="/*" element={'Not Found'} />
          </Routes>
       </div>
