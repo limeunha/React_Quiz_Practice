@@ -13,13 +13,11 @@ function Quiz04() {
    })
 
    //prevState : 현재 state를 가져온다
-   setDisplayStates((prevState) => {
-   
-         ...prevState,
-         [display]: 'block',
-         level:levelVal
-      
-   })
+   setDisplayStates((prevState) => ({
+      ...prevState,
+      [display]: 'block',
+      level: levelVal,
+   }))
 
    //진화
    const evolve = (display, levelVal) => {
@@ -27,18 +25,18 @@ function Quiz04() {
          display1: 'none',
          display2: 'none',
          display3: 'none',
-         level: 1,
       })
    }
-
    return (
       <div>
-         <img src={step1} width="150" style={{ display: displaySTates.display1 }} />
-         <img src={step2} width="150" style={{ display: displaySTates.display2 }} />
-         <img src={step3} width="150" style={{ display: displaySTates.display3 }} />
+         <img src={step1} width="150" style={{ display: displayStates.display1 }} />
+         <img src={step2} width="150" style={{ display: displayStates.display2 }} />
+         <img src={step3} width="150" style={{ display: displayStates.display3 }} />
+
          <br />
-         {displayStates.level === 1 && <button onClick={() => evolve2}>이상해씨 진화!</button>}
-         {displayStates.level === 2 && <button onClick={() => evolve3}>이상해풀 진화!</button>}
+
+         {displayStates.level === 1 && <button onClick={() => evolve('display2', 2)}>이상해씨 진화!</button>}
+         {displayStates.level === 2 && <button onClick={() => evolve('display3', 3)}>이상해꽃 진화!</button>}
          {displayStates.level === 3 && <p>진화 끝!</p>}
       </div>
    )
