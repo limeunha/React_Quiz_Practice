@@ -2,6 +2,10 @@ import styled from 'styled-components'
 
 const Box = styled.div`
    /* 여기에 코드 작성 */
+width :${(props) => (props.size == 'small' ? '100px' : props.size === 'medium' ? '200px' : '300px')}
+heigh :${(props) => (props.size == 'small' ? '100px' : props.size === 'medium' ? '200px' : '300px')}
+
+
    background-color: lightgray;
    margin: 10px;
 `
