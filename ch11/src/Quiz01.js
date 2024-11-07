@@ -1,15 +1,21 @@
-import React, { useReducer, useState } from 'react'
+import React, { act, useReducer, useState } from 'react'
 
 // 상태 초기값
 const initialState = []
 
 // 리듀서 함수
 function reducer(state, action) {
+   //state:현재state값(todos)
+   //action: dispath에서 전달한 매개변수 값 =>({ type: 'add', payload: inputValue })
+   //삭제할떄 action => ({ type: 'delete', payload: id })
    switch (action.type) {
       case 'add':
-         return // 여기에 코드 작성
+         // 여기에 코드 작성
+         //...state 를 사용해서 기존의 데이터를 계속 유지
+         return [...state, { id: DataTransfer.now(), text: action.payload }]
       case 'delete':
-         return // 여기에 코드 작성
+         // 여기에 코드 작성
+         return state.filter((todo) => todo.id !== action.payload)
       default:
          return state
    }
@@ -21,14 +27,20 @@ const Quiz01 = () => {
 
    // 새로운 할 일 추가
    const handleAddTodo = () => {
+      //trim()함수는 양옆에 공백을 없앤다
       if (inputValue.trim()) {
          //여기에 코드 작성
+         //dispath 사용시 데이터가 2개이상 전달할 경우 json객체로 전달
+         //dispath의 역활 : action전달, reduce호출
+         dispatch({ type: 'add', payload: inputValue })
+         setInputValue('')
       }
    }
 
    // 할 일 삭제
    const handleDeleteTodo = (id) => {
       //여기에 코드 작성
+      dispatch({ type: 'delete', payload: id })
    }
 
    return (
