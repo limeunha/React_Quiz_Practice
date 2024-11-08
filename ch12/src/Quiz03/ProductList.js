@@ -1,20 +1,22 @@
 // 여기에 코드 작성
+
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { addProduct, removeProduct } from './productSlice'
+
 function ProductList() {
+   const [newProduct, setProdct] = useState('')
+   const dispatch = useDispatch()
+   const product = useSelector((state) => state.product)
    return (
       <div>
-         <input
-            value={newList}
-            onChange={(e) => {
-               setNewList(e.target.value)
-            }}
-            placeholder="포도"
-         />
-         <button onClick={() => dispatch(addList(newList))}>상품 추가</button>
+         <input value={newProduct} onChange={(e) => setNewProduct(e.target.value)} placeholder="상품명" />
+         <button onClick={() => dispatch(newProduct)}>상품추가</button>
          <ul>
-            {newList.map((list) => (
-               <li key={list.id}>
-                  {list.text}
-                  <button onClick={() => dispatch(removeList(list.id))}>상품 삭제</button>
+            {todos.map((product) => (
+               <li key={product.id}>
+                  {product.text}
+                  <button onClick={() => dispatch(removeProduct(product.id))}>삭제</button>
                </li>
             ))}
          </ul>

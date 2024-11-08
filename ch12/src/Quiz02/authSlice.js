@@ -5,10 +5,10 @@ const authSlice = createSlice({
    initialState: { isAuthenticated: false },
    reducers: {
       //  여기에 코드 작성
-      login: (state, action) => {
+      login: (state) => {
          state.isAuthenticated = true
       },
-      logout: (state, action) => {
+      logout: (state) => {
          state.isAuthenticated = false
       },
    },

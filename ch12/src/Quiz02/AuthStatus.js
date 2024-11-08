@@ -10,22 +10,26 @@ function AuthStatus() {
          {isAuthenticated ? (
             // 여기에 코드 작성
             <div>
-               <p>로그인을하세요!</p>
+               <p>로그인이 완료되었습니다!,</p>
                <button
-                  onClick={() => {
-                     dispatch(login(true))
+                  onclick={() => {
+                     dispatch(logout())
                   }}
-               ></button>
+               >
+                  로그아웃
+               </button>
             </div>
          ) : (
             //   여기에 코드 작성
             <div>
-               <p>로그인이 완료되었습니다!</p>
+               <p>로그인을하세요!</p>
                <button
-                  onclick={() => {
-                     dispatch(logout(false))
+                  onClick={() => {
+                     dispatch(login())
                   }}
-               ></button>
+               >
+                  로그인
+               </button>
             </div>
          )}
       </div>
